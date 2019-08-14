@@ -27,14 +27,14 @@ import static org.junit.jupiter.api.Assertions.assertThrows;
 public class AvailablePortFinderTest {
 
     @Test
-    public void getNextAvailablePort() throws Exception {
+    public void getNextAvailablePort() {
         int p1 = AvailablePortFinder.getNextAvailable();
         int p2 = AvailablePortFinder.getNextAvailable();
         assertFalse(p1 == p2, "Port " + p1 + " Port2 " + p2);
     }
 
     @Test
-    public void testGetNextAvailablePortInt() throws Exception {
+    public void testGetNextAvailablePortInt() {
         int p1 = AvailablePortFinder.getNextAvailable(9123);
         int p2 = AvailablePortFinder.getNextAvailable(9123);
         // these calls only check availability but don't mark the port as in
@@ -52,14 +52,14 @@ public class AvailablePortFinderTest {
     }
 
     @Test
-    public void getMinOutOfRangePort() throws Exception {
+    public void getMinOutOfRangePort() {
         assertThrows(IllegalArgumentException.class, () -> {
             AvailablePortFinder.getNextAvailable(AvailablePortFinder.MIN_PORT_NUMBER - 1);
         });
     }
 
     @Test
-    public void getMaxOutOfRangePort() throws Exception {
+    public void getMaxOutOfRangePort() {
         assertThrows(IllegalArgumentException.class, () -> {
             AvailablePortFinder.getNextAvailable(AvailablePortFinder.MAX_PORT_NUMBER + 1);
         });
